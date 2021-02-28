@@ -17,4 +17,9 @@ class Tag extends Model
     {
         return $this->belongsToMany(Place::class, "places_tags");
     }
+
+    public function users()
+    {
+        return $this->morphToMany(User::class, 'favoritable');
+    }
 }

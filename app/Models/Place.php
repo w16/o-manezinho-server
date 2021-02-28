@@ -22,4 +22,9 @@ class Place extends Model
     {
         return $this->hasMany(Address::class);
     }
+
+    public function users()
+    {
+        return $this->morphToMany(User::class, 'favoritable');
+    }
 }

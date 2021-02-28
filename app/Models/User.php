@@ -40,4 +40,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function places()
+    {
+        return $this->morphedByMany(Place::class, 'taggable');
+    }
+
+    public function categories()
+    {
+        return $this->morphedByMany(Category::class, 'taggable');
+    }
+
+    public function types()
+    {
+        return $this->morphedByMany(Type::class, 'taggable');
+    }
+
+    public function tags()
+    {
+        return $this->morphedByMany(Tag::class, 'taggable');
+    }
 }

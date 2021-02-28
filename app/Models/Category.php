@@ -17,4 +17,9 @@ class Category extends Model
     {
         return $this->hasMany(Place::class);
     }
+
+    public function users()
+    {
+        return $this->morphToMany(User::class, 'favoritable');
+    }
 }
